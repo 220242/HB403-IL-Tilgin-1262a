@@ -24,6 +24,88 @@ mtd14: 00007000 0001f800 "Log"
 mtd15: 00001000 0001f800 "Misc-A"
 ```
 ```
+# cat /proc/cpuinfo
+system type             : VR9
+processor               : 0
+cpu model               : MIPS 34Kc V5.6
+BogoMIPS                : 332.59
+wait instruction        : yes
+microsecond timers      : yes
+tlb_entries             : 16
+extra interrupt vector  : yes
+hardware watchpoint     : yes, count: 4, address/irw mask: [0x0ffc, 0x0ffc, 0x0ff8, 0x0ffb]
+ASEs implemented        : mips16 dsp mt
+shadow register sets    : 1
+core                    : 0
+VCED exceptions         : not available
+VCEI exceptions         : not available
+```
+```
+# cat /proc/diskstats
+   7       0 loop0 0 0 0 0 0 0 0 0 0 0 0
+   7       1 loop1 0 0 0 0 0 0 0 0 0 0 0
+   7       2 loop2 0 0 0 0 0 0 0 0 0 0 0
+   7       3 loop3 0 0 0 0 0 0 0 0 0 0 0
+   7       4 loop4 0 0 0 0 0 0 0 0 0 0 0
+   7       5 loop5 0 0 0 0 0 0 0 0 0 0 0
+   7       6 loop6 0 0 0 0 0 0 0 0 0 0 0
+   7       7 loop7 0 0 0 0 0 0 0 0 0 0 0
+  31       0 mtdblock0 0 0 0 0 0 0 0 0 0 0 0
+  31       1 mtdblock1 0 0 0 0 0 0 0 0 0 0 0
+  31       2 mtdblock2 0 0 0 0 0 0 0 0 0 0 0
+  31       3 mtdblock3 0 0 0 0 0 0 0 0 0 0 0
+  31       4 mtdblock4 0 0 0 0 0 0 0 0 0 0 0
+  31       5 mtdblock5 0 0 0 0 0 0 0 0 0 0 0
+  31       6 mtdblock6 0 0 0 0 0 0 0 0 0 0 0
+  31       7 mtdblock7 0 0 0 0 0 0 0 0 0 0 0
+  31       8 mtdblock8 0 0 0 0 0 0 0 0 0 0 0
+  31       9 mtdblock9 454 7266 15440 2730 0 0 0 0 0 2700 2730
+  31      10 mtdblock10 0 0 0 0 0 0 0 0 0 0 0
+  31      11 mtdblock11 1 1 8 0 0 0 0 0 0 0 0
+  31      12 mtdblock12 4 8 24 0 0 0 0 0 0 0 0
+  31      15 mtdblock15 3 0 6 0 0 0 0 0 0 0 0
+  31      13 mtdblock13 0 0 0 0 0 0 0 0 0 0 0
+  31      14 mtdblock14 0 0 0 0 0 0 0 0 0 0 0
+```
+
+```
+# cat /etc/passwd
+root:$1$q15RrcVp$8S2kplj9i7e3NfEJ3MS.Z/:0:0:root:/root:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/false
+storage_guest:x:65533:1:storage_guest:/var/mnt:/bin/false
+```
+```
+# cat /etc/build-info.rootfs
+BUILD_INFO_PRODUCT_GENERATION="D"
+BUILD_INFO_VOIP_PROTOCOL="SIP"
+BUILD_INFO_CUSTOM="330"
+BUILD_INFO_PRODUCT="vood/ng/02_07"
+BUILD_INFO_USER="root"
+BUILD_INFO_HOST="tilgin00144"
+BUILD_INFO_REVISION="DSx330-02_07_01_25"
+BUILD_INFO_SHORT_VERSION="02_07_01_25"
+BUILD_INFO_DOT_VERSION="2.7.1.25"
+BUILD_INFO_TIMESTAMP="2017/05/05-10:37:27"
+BUILD_INFO_NAMES="HG125x HG126x HG22xx HG231x_HG235x HG237x"
+```
+```
+# df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/root                18688     18688         0 100% /
+none                     62080       824     61256   1% /ramdisk
+none                     62080         0     62080   0% /dev
+none                       512       180       332  35% /ramdisk/var/log
+tmpfs                     1244         0      1244   0% /ramdisk/var/spool/clp
+ubi0:sam                 14692      1648     12272  12% /ramdisk/mnt/sam
+# free
+             total         used         free       shared      buffers
+Mem:        124164        69956        54208            0         7892
+-/+ buffers:              62064        62100
+Swap:            0            0            0
+```
+
+
+```
 VR9 # version
 
 Tilgin UBI HG126x U-Boot 2010.06-LANTIQ-v-2.3.10 (May 20 2016 - 11:22:50) 02_07_01_20
@@ -49,7 +131,23 @@ UBI: number of PEBs reserved for bad PEB handling: 10
 UBI: max/mean erase counter: 263/9
 ```
 
+```
+# ls /root/ -la
+-rw-r--r--    1 root     root         12288 Feb 23  2015 BMCFw.BIN
+-rw-r--r--    1 root     root         51620 Nov 25  2015 COSICFw.BIN
+-rw-r--r--    1 root     root        458752 Jun 18  2014 firmware.bin
 
+# ls /firmware/ -la
+drwxr-xr-x    1 root     root            36 May  5  2017 HG1262a
+-rwxr-xr-x    1 root     root        923140 Aug 15  2015 xcpe_a_hw.bin
+-rw-r--r--    1 root     root            11 May  5  2017 xcpe_a_hw.bin_ver
+-rwxr-xr-x    1 root     root        904388 Dec  5  2014 xcpe_b_hw.bin
+-rw-r--r--    1 root     root            11 May  5  2017 xcpe_b_hw.bin_ver
+
+# ls /firmware/HG1262a/ -la
+-rw-r--r--    1 root     root        923200 May  5  2017 xcpe_hw.bin
+-rw-r--r--    1 root     root            11 May  5  2017 xcpe_hw.bin_ver
+```
 
 
 
