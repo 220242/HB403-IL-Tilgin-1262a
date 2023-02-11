@@ -130,6 +130,21 @@ UBI: total number of reserved PEBs: 484
 UBI: number of PEBs reserved for bad PEB handling: 10
 UBI: max/mean erase counter: 263/9
 ```
+```
+VR9 # mtdparts
+
+device nand0 <ifx_nand>, # parts = 2
+ #: name                size            offset          mask_flags
+ 0: U-Boot              0x80000 0x0     0
+ 1: ubi                 0x7f80000       0x80000 0
+
+active partition: nand0,0 - (U-Boot) 0x80000 @ 0x0
+
+defaults:
+mtdids  : nand0=ifx_nand
+mtdparts: ifx_nand:0x80000@0x0(U-Boot),-@0x80000(ubi)
+```
+
 
 ```
 # ls /root/ -la
