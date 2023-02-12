@@ -144,6 +144,47 @@ defaults:
 mtdids  : nand0=ifx_nand
 mtdparts: ifx_nand:0x80000@0x0(U-Boot),-@0x80000(ubi)
 ```
+```
+VR9 # help
+?       - alias for 'help'
+addmtdram- add MTD RAM partition
+base    - print or set address offset
+bootm   - boot application image from memory
+bootp   - boot image via network using BOOTP/TFTP protocol
+chpart  - change active partition
+cmp     - memory compare
+cp      - memory copy
+crc32   - checksum calculation
+echo    - echo args to console
+go      - start application at address 'addr'
+help    - print command description/usage
+loadb   - load binary file over serial line (kermit mode)
+loady   - load binary file over serial line (ymodem mode)
+loop    - infinite loop on address range
+md      - memory display
+mm      - memory modify (auto-incrementing address)
+mtdparts- define flash/nand partitions
+mtest   - simple RAM read/write test
+mw      - memory write (fill)
+nand    - NAND sub-system
+nboot   - boot from NAND device
+nm      - memory modify (constant address)
+ping    - send ICMP ECHO_REQUEST to network host
+printenv- print environment variables
+rarpboot- boot image via network using RARP/TFTP protocol
+reset   - Perform RESET of the CPU
+run     - run commands in an environment variable
+saveenv - save environment variables to persistent storage
+setenv  - set environment variables
+sqfsload- load file from a SquashFS filesystem image into memory
+sqfspl1 - check whether appfs contains the update for rootfs
+tftpboot- boot image via network using TFTP protocol
+ubi     - ubi commands
+ubi_sw_update- check UBI volumes for SW update renamings
+upgrade - forward/backward copy memory to pre-defined flash location
+version - print monitor version
+wdt     - start/stop a watchdog timer
+```
 
 
 ```
