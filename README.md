@@ -1,3 +1,13 @@
+Enable ssh
+```
+dropbearkey -t rsa -f /tmp/dropbear_rsa_host_key
+dropbear -E -p 22 -r /tmp/dropbear_rsa_host_key
+
+ssh root@10.0.0.138 
+passw: amazon
+```
+
+
 ```
 # cat /proc/version
 Linux version 2.6.32.42 (lajo@tilgin00144) (gcc version 4.3.3 (GCC) ) #1 Fri May 5 10:43:41 CEST 2017
