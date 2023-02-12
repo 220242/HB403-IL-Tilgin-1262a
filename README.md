@@ -8,6 +8,8 @@ passw: amazon
 ```
 
 
+etc
+
 ```
 # cat /proc/version
 Linux version 2.6.32.42 (lajo@tilgin00144) (gcc version 4.3.3 (GCC) ) #1 Fri May 5 10:43:41 CEST 2017
