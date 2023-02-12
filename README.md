@@ -1,7 +1,10 @@
 https://wikidevi.wi-cat.ru/VTECH_NB403
 
+
 looks like similar hw
+
 https://openwrt.org/toh/avm/avm_fritz_box_7412
+
 https://openwrt.org/toh/bt/homehub_v5a
 
 
