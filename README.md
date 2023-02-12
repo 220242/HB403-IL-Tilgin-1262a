@@ -10,13 +10,30 @@ https://openwrt.org/toh/bt/homehub_v5a
 
 Enable ssh
 ```
-dropbearkey -t rsa -f /tmp/dropbear_rsa_host_key
+dropbearkey -t ed25519 -f /tmp/dropbear_rsa_host_key
 dropbear -E -p 22 -r /tmp/dropbear_rsa_host_key
 
 ssh root@10.0.0.138 
 passw: amazon
 ```
-
+```
+ssh root@10.0.0.138 'dd if=/dev/mtd/0' | dd of=mtd0_U-boot.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/1' | dd of=mtd1_ubi.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/2' | dd of=mtd2_test_data.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/3' | dd of=mtd3_old.kernel.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/4' | dd of=mtd4_sam.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/5' | dd of=mtd5_old.rootfs.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/6' | dd of=mtd6_Environment.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/7' | dd of=mtd7_old.appfs.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/8' | dd of=mtd8_kernel.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/9' | dd of=mtd9_rootfs.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/10' | dd of=mtd10_appfs.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/11' | dd of=mtd11_caldata.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/12' | dd of=mtd12_Config-C.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/13' | dd of=mtd13_Config-A.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/14' | dd of=mtd14_Log.bin
+ssh root@10.0.0.138 'dd if=/dev/mtd/15' | dd of=mtd15_Misc-A.bin
+```
 
 etc
 
