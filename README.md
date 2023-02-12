@@ -8,6 +8,11 @@ https://openwrt.org/toh/avm/avm_fritz_box_7412
 https://openwrt.org/toh/bt/homehub_v5a
 
 
+Serial connect
+```
+sudo picocom -b 115200 /dev/ttyUSB0 --send-cmd "ascii-xfr -s -n"
+```
+
 Enable ssh
 ```
 dropbearkey -t ed25519 -f /tmp/dropbear_rsa_host_key
@@ -16,6 +21,7 @@ dropbear -E -p 22 -r /tmp/dropbear_rsa_host_key
 ssh root@10.0.0.138 
 passw: amazon
 ```
+dump mtd
 ```
 ssh root@10.0.0.138 'dd if=/dev/mtd/0' | dd of=mtd0_U-boot.bin
 ssh root@10.0.0.138 'dd if=/dev/mtd/1' | dd of=mtd1_ubi.bin
